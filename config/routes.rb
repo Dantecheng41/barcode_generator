@@ -11,4 +11,7 @@ Rails.application.routes.draw do
 
   get 'ocr_barcodes', to: 'ocr#multi_new'
   post 'convert_to_barcodes', to: 'ocr#convert_to_barcodes'
+
+  get 'text_parse', to: 'text#new'
+  post 'parse_to_barcodes', to: 'text#parse_to_barcodes'
 end

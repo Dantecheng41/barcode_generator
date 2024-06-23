@@ -1,0 +1,18 @@
+<%= turbo_frame_tag 'result', class: 'w-full grid grid-cols-3 gap-8' do %>
+  <% local_assigns[:rows]&.each do |row| %>
+    <div class="flex flex-col items-center justify-center">
+      <% if row[:adm].present? %>
+        <div class="text-xl font-bold">
+          <%= row[:adm] %>
+        </div>
+      <% else %>
+        <div class="text-red-500">台灣區域讀取失敗</div>
+      <% end %>
+      <%= row[:weight] %>
+      <% if row[:post_number].present? %>
+        <div><%= row[:post_number] %></div>
+        <img src="<%= row[:barcode_src] %>" alt="Barcode Image">
+      <% end %>
+    </div>
+  <% end %>
+<%end%>
